@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se connecter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0px;
+            margin: 0px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 45%;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label, input, button {
+            margin-bottom: 15px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Retour</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h1>Connexion</h1>
+            <form id="loginForm">
+                <label for="email1">email</label>
+                <input type="text" id="email1" name="email1" required>
+
+                <label for="password1">Mot de passe</label>
+                <input type="text" id="password1" name="password1" required>
+
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <h1>Enregistrement</h1>
+            <form id="addClientForm">
+                <label for="lastName2">Nom</label>
+                <input type="text" id="lastName2" name="lastName2" required>
+
+                <label for="firstName2">Prénom</label>
+                <input type="text" id="firstName2" name="firstName2" required>
+
+                <label for="email2">email</label>
+                <input type="text" id="email2" name="email2" required>
+
+                <label for="adresse2">adresse</label>
+                <input type="text" id="adresse2" name="adresse2" required>
+
+                <label for="city2">ville</label>
+                <input type="text" id="city2" name="city2" required>
+
+                <label for="password2">Mot de passe</label>
+                <input type="text" id="password2" name="password2" required>
+
+
+                <button type="submit">S'enregistrer</button>
+            </form>
+        </div>
+    </div>
+    <script src="scriptConnexion.js"></script>
+</body>
+</html>
