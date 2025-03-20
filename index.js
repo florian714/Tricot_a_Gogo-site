@@ -10,6 +10,7 @@ const cors = require('cors');
 const routeCommand = require("./routes/CommandRoutes");
 const routeProduit = require("./routes/ProduitRoutes");
 const routeUser = require("./routes/UserRoutes");
+const routeComment = require("./routes/CommentaireRoutes");
 
 const app = express();
 const hostname = '127.0.0.1';
@@ -32,6 +33,8 @@ app.use('/commands', routeCommand);
 app.use('/produits', routeProduit);
 // Utilisation des routes définies dans userRoute
 app.use('/user', routeUser);
+// Utilisation des routes définies dans CommentaireRoute
+app.use("/comments", routeComment);
 
 //generer la base de données
 const mongoURI = "mongodb://127.0.0.1:27017/DonnéesTricot";

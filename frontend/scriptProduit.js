@@ -15,7 +15,7 @@ function fetchProduit() {
             if (produits.length > 0) {
                 produits.forEach(produit => {
                     const li_produit = document.createElement('li');
-                    li_produit.textContent = `Name: ${produit.name}, Color: ${produit.color}, Price: ${produit.price}`;
+                    li_produit.textContent = `Name: ${produit.name}, Color: ${produit.color}, Price: ${produit.price}, option: ${produit.option}`;
                     produitList.appendChild(li_produit);
                 });
             } else {

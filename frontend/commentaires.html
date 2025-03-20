@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Commentaires</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0px;
+        }
+        .comment-section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comment-text {
+            margin-top: 10px;
+        }
+        .like-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .like-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .like-text {
+            margin-right: 5px; /* Ajuste l'espace entre le texte et le bouton */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .like-button:hover {
+            background-color: #0056b3;
+        }
+        .new-comment {
+            margin-top: 20px;
+        }
+        .new-comment textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .new-comment button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .new-comment button:hover {
+            background-color: #218838;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Retour</a>
+    </div>
+
+        <!-- Section pour ajouter un nouveau commentaire -->
+    <div class="new-comment">
+        <textarea id="new-comment-textarea" placeholder="Ajoutez votre commentaire ici..." rows="4"></textarea>
+        <button type="button" id="add-comment-button">Ajouter un Commentaire</button>
+    </div>
+    <h1>Commentaires</h1>
+    
+    <div id="comments-container">
+        <div id="comments-list"></div> <!-- Sépare la zone des commentaires -->
+    </div>
+
+
+    
+    <script src="scriptComment.js"></script>
+</body>
+

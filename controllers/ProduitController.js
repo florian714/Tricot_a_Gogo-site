@@ -83,3 +83,4 @@ module.exports.addPersonnalisedProduit = async (req, res) => {
         res.status(500).json({ message: "Erreur lors de l'ajout du produit", error });
     }
 };
+

@@ -82,3 +82,36 @@ module.exports.delUser = async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de la suppression de la commande', error });
     }
 };
+
+module.exports.updateUser = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { firstName, lastName, email, adresse, city, password, role } = req.body;
+
+        // Trouver la commande et la mettre à jour
+        const updatedUSer = await User.findByIdAndUpdate(id, { firstName, lastName, email, adresse, city, password, role }, { new: true });
+
+        // Si la commande n'existe pas, renvoie une erreur
+        if (!updatedUSer) {
+            return res.status(404).json({ message: 'User non trouvée' });
+        }
+
+        // Retourner la commande mise à jour
+        res.status(200).json(updatedUSer);
+
+    } catch (error) {
+        res.status(500).json({message: 'Erreur lors de la modification du user', error});
+    };
+}
+
+module.exports.finduser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await User.findById(id);
+        res.status(200).json(user);
+
+    }
+    catch {
+        res.status(500).json({ message: "Erreur lors de la recherche de nom"})
+    }
+}
