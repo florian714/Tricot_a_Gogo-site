@@ -8,6 +8,7 @@ const ProduitController = require('../controllers/ProduitController');
 
 // Route pour obtenir tous les produits
 router.get('/', ProduitController.getAllProduits);
+router.get('/:id', ProduitController.getclientProduits);
 
 // Route pour ajouter un nouveau produit
 router.post('/', auth, isAdmin, ProduitController.addProduit);

@@ -11,6 +11,17 @@ module.exports.getAllProduits = async(req, res) => {
     }
 };
 
+module.exports.getclientProduits = async(req, res) => {
+    try {
+        const { id } = req.params; 
+        const produits = await Produit.findById(id);
+        res.status(200).json(produits);
+    } catch (error) {
+        console.error("Erreur MongoDB :", error); // Ajoute un log pour voir l'erreur exacte
+        res.status(500).json({ message: 'Erreur lors de la récupération du produits', error });
+    }
+};
+
 module.exports.addProduit = async (req, res) => {
     try {
         const { name, color, price } = req.body;
