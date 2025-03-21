@@ -85,6 +85,29 @@ const addtoPanier = async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de l\'ajout de la commande au Panier', error });
     }
 };
+const delProduit = async (req, res) => {
+    try {
+        const { id } = req.params; // L'ID du panier
+        const { id_produit } = req.body; // L'ID du produit à supprimer
+
+        console.log("Suppression du produit avec id_produit:", id_produit);
+
+        const panier = await Panier.findByIdAndUpdate(
+            id,
+            { $pull: { contenu: id_produit } }, // $pull retire l'élément du tableau
+            { new: true } // Retourner le panier mis à jour
+        );
+
+        if (!panier) {
+            return res.status(404).json({ message: "Panier non trouvé" });
+        }
+
+        res.status(200).json({ message: "Produit retiré du panier", panier });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la suppression du produit du panier', error });
+    }
+};
 
 
-module.exports = {getAllPanier, addPanier, deletePanier, addtoPanier, getPanier};
+module.exports = {getAllPanier, addPanier, deletePanier, addtoPanier, getPanier, delProduit};

@@ -14,7 +14,6 @@ async function fetchProduit() {
         });
 
         const panier = await response.json();
-        console.log(panier);
 
         if (!panier.contenu || panier.contenu.length === 0) {
             console.log("Le panier est vide.");
@@ -26,7 +25,6 @@ async function fetchProduit() {
 
         for (const idproduit of panier.contenu) {
             try {
-                console.log(idproduit)
                 const produitResponse = await fetch(apiURL + '/produits/' + idproduit, {
                     method: 'GET',
                     headers: {
@@ -36,7 +34,6 @@ async function fetchProduit() {
                 });
 
                 const produit = await produitResponse.json();
-                console.log(produit);
 
                 // Création des éléments DOM
                 const produitSection = document.createElement('div');
@@ -68,7 +65,23 @@ async function fetchProduit() {
                 produitSection.appendChild(retirerContainer);
 
                 container.appendChild(produitSection);
-                
+                console.log(idproduit);
+
+                retirerButton.onclick = async function() {
+                    await fetch(apiURL + "/paniers/retirer/" + panier._id, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ id_produit: idproduit })
+                    }).then(response => response.json())
+                    .then(data => {
+                        console.log("Réponse du serveur :", data);
+                        fetchProduit(); 
+                    })
+                    .catch(error => console.error("Erreur lors de l'enlevement produit du panier", error));
+                }
 
             } catch (error) {
                 console.error("Erreur lors de la récupération du produit :", error);

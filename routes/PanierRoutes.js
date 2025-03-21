@@ -18,5 +18,7 @@ router.delete('/:id', PanierController.deletePanier);
 
 router.patch('/ajout/:id', auth, PanierController.addtoPanier);
 
+router.patch('/retirer/:id', auth, PanierController.delProduit);
+
 module.exports = router;
 
