@@ -13,6 +13,7 @@ const routeProduit = require("./routes/ProduitRoutes");
 const routeUser = require("./routes/UserRoutes");
 const routeComment = require("./routes/CommentaireRoutes");
 const routePanier = require("./routes/PanierRoutes");
+const routeMail = require("./routes/mailRoutes");
 
 const app = express();
 const hostname = '127.0.0.1';
@@ -40,6 +41,7 @@ app.use("/comments", routeComment);
 
 app.use("/paniers", routePanier);
 
+app.use("/mails", routeMail);
 //generer la base de données
 const mongoURI = "mongodb://127.0.0.1:27017/DonnéesTricot";
 

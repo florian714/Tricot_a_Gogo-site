@@ -85,6 +85,26 @@ const addtoPanier = async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de l\'ajout de la commande au Panier', error });
     }
 };
+const resetPanier = async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        // Trouver le panier et vider son contenu
+        const panier = await Panier.findById(id);
+        
+        if (!panier) {
+            return res.status(404).json({ message: 'Panier introuvable' });
+        }
+
+        // Mettre à jour le panier pour vider le tableau "contenu"
+        panier.contenu = [];  // Vider le tableau contenu
+        await panier.save();  // Sauvegarder la modification dans la base de données
+
+        res.status(200).json({ message: 'Panier reset avec succès', panier });
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la suppression des produits du Panier', error });
+    }
+};
 const delProduit = async (req, res) => {
     try {
         const { id } = req.params; // L'ID du panier
@@ -110,4 +130,4 @@ const delProduit = async (req, res) => {
 };
 
 
-module.exports = {getAllPanier, addPanier, deletePanier, addtoPanier, getPanier, delProduit};
+module.exports = {getAllPanier, resetPanier, addPanier, deletePanier, addtoPanier, getPanier, delProduit};

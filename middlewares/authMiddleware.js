@@ -9,7 +9,6 @@ module.exports = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token.replace("Bearer ", ""), process.env.JWT_SECRET);
-        console.log(decoded);
         req.user = decoded; // Ajoute l'utilisateur à `req`
         next();
     } catch (err) {

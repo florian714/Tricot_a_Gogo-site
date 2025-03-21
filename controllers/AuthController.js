@@ -102,9 +102,9 @@ module.exports.updateUser = async (req, res) => {
     } catch (error) {
         res.status(500).json({message: 'Erreur lors de la modification du user', error});
     };
-}
+};
 
-module.exports.finduser = async (req, res) => {
+module.exports.lala = async (req, res) => {
     try {
         const { id } = req.params;
         const user = await User.findById(id);
@@ -112,6 +112,25 @@ module.exports.finduser = async (req, res) => {
 
     }
     catch {
-        res.status(500).json({ message: "Erreur lors de la recherche de nom"})
+        res.status(500).json({ message: "Erreur lors de la recherche de NIQUE TA GRAND MERE LA CHAUVE C PAS LA BONNE CONFTIONC"})
     }
-}
+};
+
+module.exports.trouverutilisateur = async (req, res) => {
+    try {
+        const _id = req.user.userId; // L'ID de l'utilisateur depuis le token
+        console.log("ID de l'utilisateur:", _id);  // Log l'ID pour vérifier qu'il est bien présent
+
+        // Recherche l'utilisateur par ID dans la base de données
+        const user = await User.findById(_id);
+        if (!user) {
+            console.log("Utilisateur non trouvé pour l'ID:", _id);  // Log pour aider à diagnostiquer
+            return res.status(404).json({ message: 'Aucun utilisateur trouvé pour cet ID' });
+        }
+        // Si l'utilisateur est trouvé, renvoie les informations
+        res.status(200).json(user);
+    } catch (error) {
+        console.error("Erreur lors de la recherche de l'utilisateur++++++++:", error);  // Log l'erreur détaillée
+        res.status(500).json({ message: "Erreur lors de la recherche de nom++++", error: error.message });
+    }
+};
