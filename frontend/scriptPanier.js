@@ -68,6 +68,7 @@ async function fetchProduit() {
                 produitSection.appendChild(retirerContainer);
 
                 container.appendChild(produitSection);
+                
 
             } catch (error) {
                 console.error("Erreur lors de la récupération du produit :", error);

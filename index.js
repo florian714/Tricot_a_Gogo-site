@@ -9,7 +9,6 @@ const cors = require('cors');
 
 //recupérer les routes
 
-const routeCommand = require("./routes/CommandRoutes");
 const routeProduit = require("./routes/ProduitRoutes");
 const routeUser = require("./routes/UserRoutes");
 const routeComment = require("./routes/CommentaireRoutes");
@@ -31,8 +30,7 @@ app.use(session({
     saveUninitialized: true
 }))
 
-// Utilisation des routes définies dans commandRoute
-app.use('/commands', routeCommand);
+
 // Utilisation des routes définies dans produitRoute
 app.use('/produits', routeProduit);
 // Utilisation des routes définies dans userRoute
