@@ -3,6 +3,8 @@ const { createServer } = require('node:http');
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const path = require('path');
+
 const cors = require('cors');
 
 //recupérer les routes
@@ -11,6 +13,7 @@ const routeCommand = require("./routes/CommandRoutes");
 const routeProduit = require("./routes/ProduitRoutes");
 const routeUser = require("./routes/UserRoutes");
 const routeComment = require("./routes/CommentaireRoutes");
+const routePanier = require("./routes/PanierRoutes");
 
 const app = express();
 const hostname = '127.0.0.1';
@@ -20,6 +23,7 @@ const port = 3000;
 app.use(cors());  // Permet les requêtes CORS
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'Assets')));    
 app.use(express.urlencoded())
 app.use(session({
     secret: 'votreSecret',
@@ -35,6 +39,8 @@ app.use('/produits', routeProduit);
 app.use('/user', routeUser);
 // Utilisation des routes définies dans CommentaireRoute
 app.use("/comments", routeComment);
+
+app.use("/paniers", routePanier);
 
 //generer la base de données
 const mongoURI = "mongodb://127.0.0.1:27017/DonnéesTricot";

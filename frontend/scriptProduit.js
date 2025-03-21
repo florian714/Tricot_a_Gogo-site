@@ -9,27 +9,38 @@ function fetchProduit() {
             return response.json();
         })
         .then(produits => {
-            const produitList = document.getElementById('produitList');
-            produitList.innerHTML = ''; // Vide la liste avant de la remplir
+            const container = document.getElementById('produits-container');
+            container.innerHTML = ''; // Vide la liste avant de la remplir
             // Vérifie que des commandes sont récupérées
             if (produits.length > 0) {
                 produits.forEach(produit => {
-                    const li_produit = document.createElement('li');
-                    li_produit.textContent = `Name: ${produit.name}, Color: ${produit.color}, Price: ${produit.price}, option: ${produit.option}`;
-                    produitList.appendChild(li_produit);
+                    const produitSection = document.createElement('div');
+                    produitSection.className = 'produit-section';
+
+                    const nameHeader = document.createElement('div');
+                    nameHeader.className = 'produit-header';
+                    nameHeader.innerHTML = `<strong>${produit.name}</strong>`;
+                    const colorText = document.createElement('div');
+                    colorText.className = 'produit-text';
+                    colorText.innerText = produit.color;
+
+                    const persoText = document.createElement('div');
+                    persoText.className = 'produit-text';
+                    persoText.innerText = produit.option;
+
+                    produitSection.appendChild(nameHeader);
+                    produitSection.appendChild(colorText);
+                    produitSection.appendChild(persoText);
+
+                    container.appendChild(produitSection);
+                    
                 });
             } else {
-                const li_produit = document.createElement('li');
-                li_produit.textContent = 'Aucun produit disponible.';
-                produitList.appendChild(li_produit);
+                console.log("pas de produit")
             }
         })
         .catch(error => {
             console.error('Erreur lors de la récupération des produits:', error);
-            const produitList = document.getElementById('produitList');
-            const li_produit = document.createElement('li');
-            li_produit.textContent = 'Impossible de récupérer les produits.';
-            produitList.appendChild(li_produit);
         });
 }
 

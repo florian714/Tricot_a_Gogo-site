@@ -7,7 +7,8 @@ const produitSchema = new mongoose.Schema({
     price: { type: Number, required: true },
     personnalise: {type: String, enum:["Personnalisé", "Non Personnalisé"], default:"Non Personnalisé"},
     option: {type: String, default:""},
-    createur: {type: String, default:""}
+    createur: {type: String, default:""},
+    image: { type: String, default:""}
 });
 
 const Produit = mongoose.model('Produit', produitSchema);

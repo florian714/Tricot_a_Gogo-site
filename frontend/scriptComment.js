@@ -35,12 +35,28 @@ function fetchComment() {
                         const likeContainer = document.createElement("div");
                         likeContainer.className = "like-container";
 
-    
+                        const likeText = document.createElement('div');
+                        likeText.className = "like-text";
+                        likeText.innerText = comment.likes.length;
                         const likeButton = document.createElement('button');
                         likeButton.className = 'like-button';
                         likeButton.innerText = 'Like';
                         const token = localStorage.getItem('token');
                         const commentData = {}
+    
+                        const commentText = document.createElement('div');
+                        commentText.className = 'comment-text';
+                        commentText.innerText = comment.contenu;
+
+                        likeContainer.appendChild(likeText);
+                        likeContainer.appendChild(likeButton);
+                        commentHeader.appendChild(likeContainer);
+    
+                        commentSection.appendChild(commentHeader);
+                        commentSection.appendChild(commentText);
+    
+                        container.prepend(commentSection);
+
                         likeButton.onclick = function () {
                             if (!comment._id) {
                                 console.error("Le commentaire suivant n'a pas d'ID :", comment);
@@ -63,24 +79,6 @@ function fetchComment() {
                             })
                             
                         };
-
-                        const likeText = document.createElement('div');
-                        likeText.className = "like-text";
-                        console.log(comment.likes.length)
-                        likeText.innerText = comment.likes.length;
-    
-                        const commentText = document.createElement('div');
-                        commentText.className = 'comment-text';
-                        commentText.innerText = comment.contenu;
-
-                        likeContainer.appendChild(likeText);
-                        likeContainer.appendChild(likeButton);
-                        commentHeader.appendChild(likeContainer);
-    
-                        commentSection.appendChild(commentHeader);
-                        commentSection.appendChild(commentText);
-    
-                        container.prepend(commentSection);
                     })
 
                 });

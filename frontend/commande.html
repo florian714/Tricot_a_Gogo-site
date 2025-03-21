@@ -10,37 +10,47 @@
             padding: 0px;
             margin: 0px;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 10px;
-            border: 0px solid #ddd;
+
+        .produit-section {
+            background-color: lightgrey;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            padding: 15px;
+            border : 2px solid black;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .produit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .produit-text {
+            margin-top: 10px;
+            margin-left: 20px;  
+        }
+        .produits-container {
+            flex-grow: 1; /* Prend tout l’espace restant */
+            max-width: 90%;
+            margin:auto;
+            padding: 40px;
+            border: 2px solid #ddd;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label, input, button {
-            margin-bottom: 15px;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #333;
-            color: white;
+        }   
+        .command-button {
+            background-color: #007BFF;
+            color: black;
+            margin-right: 20px;
             border: none;
-            border-radius: 5px;
+            padding: 20px 40px;
+            border-radius: 4px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #555;
+        .command-container {
+            display: flex;
+            justify-content: flex-end; /* Aligne à droite */
+            padding: 10px 0; /* Ajoute un peu d'espace en haut et en bas */
         }
         .navbar {
             background-color: #333;
@@ -66,22 +76,11 @@
     <div class="navbar">
         <a href="index.html">Retour</a>
     </div>
-
-    <h1>Liste des produits</h1>
-    <ul id="produitList"></ul>
     
-    <div class="container">
-        <h1>Passer une Commande</h1>
-        <form id="addCommandForm">
-            <label for="name">Nom du produit</label>
-            <input type="text" id="name" name="name" required>
-    
-            <label for="color">Couleur du produit</label>
-            <input type="text" id="color" name="color" required>
-    
-            <button type="submit">Commander</button>
-        </form>        
+    <div id="produits-container" class="produits-container">
+        <div id="produit-list"></div> <!-- Sépare la zone des commentaires -->
     </div>
+    
     <script src="scriptCommand.js"></script>
 </body>
 </html>
