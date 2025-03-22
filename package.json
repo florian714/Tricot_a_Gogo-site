@@ -20,7 +20,8 @@
   "homepage": "https://github.com/florian714/Tricot_a_Gogo-site#readme",
   "dependencies": {
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "mongoose": "^8.12.2",
-    "require": "^2.4.20"
+    "require": "^0.4.4"
   }
 }
