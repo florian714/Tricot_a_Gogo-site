@@ -105,7 +105,7 @@ boutonCommande.onclick = async function (){
     });
     const panier = await response.json();
     console.log(panier)
-    const userr = await fetch(apiURL + "/user/trouveeee", {
+    const userr = await fetch(apiURL + "/user/find", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

@@ -104,7 +104,7 @@ module.exports.updateUser = async (req, res) => {
     };
 };
 
-module.exports.lala = async (req, res) => {
+module.exports.findUser = async (req, res) => {
     try {
         const { id } = req.params;
         const user = await User.findById(id);
@@ -116,7 +116,7 @@ module.exports.lala = async (req, res) => {
     }
 };
 
-module.exports.trouverutilisateur = async (req, res) => {
+module.exports.findActualUser = async (req, res) => {
     try {
         const _id = req.user.userId; // L'ID de l'utilisateur depuis le token
         console.log("ID de l'utilisateur:", _id);  // Log l'ID pour vérifier qu'il est bien présent

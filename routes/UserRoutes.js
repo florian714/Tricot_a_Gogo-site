@@ -10,9 +10,10 @@ router.post("/login", UserController.login);
 router.get("/", UserController.getAll);
 
 router.delete("/:id", UserController.delUser);
-router.get("/trouveeee", auth, UserController.trouverutilisateur);
 
-router.get("/:id", UserController.lala);    
+router.get("/find", auth, UserController.findActualUser);
+
+router.get("/:id", UserController.findUser);    
 
 router.put("/:id", UserController.updateUser);
 module.exports = router;
