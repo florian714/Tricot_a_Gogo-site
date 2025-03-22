@@ -77,7 +77,7 @@ const addtoPanier = async (req, res) => {
         console.log(id_produit+"produit")
         const panier = await Panier.findByIdAndUpdate(
             id,
-            { $addToSet: {contenu: id_produit} },
+            { $push: {contenu: id_produit} },
             { new: true }
         );
     }
