@@ -43,7 +43,7 @@ app.use("/paniers", routePanier);
 
 app.use("/mails", routeMail);
 //generer la base de données
-const mongoURI = "mongodb+srv://florianmontiton:Maitreioda01!@cluster0.mswbp.mongodb.net/DonnéesTricot";
+const mongoURI = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURI)
 .then(() => console.log("✅ Connexion MongoDB réussie !"))
