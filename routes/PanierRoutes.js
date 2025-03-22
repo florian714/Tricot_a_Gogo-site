@@ -21,5 +21,6 @@ router.patch('/ajout/:id', auth, PanierController.addtoPanier);
 router.patch('/retirer/:id', auth, PanierController.delProduit);
 
 router.patch('/reset/:id', auth, PanierController.resetPanier);
+
 module.exports = router;
 
