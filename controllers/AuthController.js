@@ -66,7 +66,7 @@ module.exports.getAll = async (req, res) => {
         res.status(200).json(users);
     } catch (error) {
         console.error("Erreur MongoDB :", error); // Ajoute un log pour voir l'erreur exacte
-        res.status(500).json({ message: 'Erreur lors de la récupération des clients', error });
+        res.status(500).json({ message: 'Erreur lors de la récupération des Users', error });
     }
 };
 
@@ -75,11 +75,11 @@ module.exports.delUser = async (req, res) => {
         const { id } = req.params;
         const deletedUser = await User.findByIdAndDelete(id);
         if (!deletedUser) {
-            return res.status(404).json({ message: 'Commande non trouvée' });
+            return res.status(404).json({ message: 'User non trouvée' });
         }
-        res.status(200).json({ message: 'Commande supprimée avec succès' });
+        res.status(200).json({ message: 'User supprimée avec succès' });
     } catch (error) {
-        res.status(500).json({ message: 'Erreur lors de la suppression de la commande', error });
+        res.status(500).json({ message: 'Erreur lors de la suppression du user', error });
     }
 };
 
@@ -112,7 +112,7 @@ module.exports.findUser = async (req, res) => {
 
     }
     catch {
-        res.status(500).json({ message: "Erreur lors de la recherche de NIQUE TA GRAND MERE LA CHAUVE C PAS LA BONNE CONFTIONC"})
+        res.status(500).json({ message: "Erreur lors de la recherche de User"})
     }
 };
 
@@ -130,7 +130,7 @@ module.exports.findActualUser = async (req, res) => {
         // Si l'utilisateur est trouvé, renvoie les informations
         res.status(200).json(user);
     } catch (error) {
-        console.error("Erreur lors de la recherche de l'utilisateur++++++++:", error);  // Log l'erreur détaillée
-        res.status(500).json({ message: "Erreur lors de la recherche de nom++++", error: error.message });
+        console.error("Erreur lors de la recherche de l'utilisateur:", error);  // Log l'erreur détaillée
+        res.status(500).json({ message: "Erreur lors de la recherche de nom", error: error.message });
     }
 };

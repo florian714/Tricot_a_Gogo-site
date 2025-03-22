@@ -31,11 +31,11 @@ module.exports.addProduit = async (req, res) => {
         await nouveauProduit.save();
 
         // Réponse en cas de succès
-        res.status(201).json({ message: "Commande ajoutée avec succès.", nouveauProduit });
+        res.status(201).json({ message: "Produit ajoutée avec succès.", nouveauProduit });
 
     } catch (error) {
-        console.error("Erreur lors de l'ajout de la commande :", error);
-        res.status(500).json({ message: "Erreur lors de l'ajout de la commande.", error: error.message });
+        console.error("Erreur lors de l'ajout du Produit :", error);
+        res.status(500).json({ message: "Erreur lors de l'ajout du produit.", error: error.message });
     }
 };
 
@@ -49,14 +49,14 @@ module.exports.updateProduit = async (req, res) => {
 
         // Si la commande n'existe pas, renvoie une erreur
         if (!updatedProduit) {
-            return res.status(404).json({ message: 'Commande non trouvée' });
+            return res.status(404).json({ message: 'Produit non trouvée' });
         }
 
         // Retourner la commande mise à jour
         res.status(200).json(updatedProduit);
 
     } catch (error) {
-        res.status(500).json({message: 'Erreur lors de la modification de la commande', error});
+        res.status(500).json({message: 'Erreur lors de la modification du produit', error});
     };
 }
 
@@ -66,11 +66,11 @@ module.exports.deleteProduit = async (req, res) => {
         const { id } = req.params;
         const deletedProduit = await Produit.findByIdAndDelete(id);
         if (!deletedProduit) {
-            return res.status(404).json({ message: 'Commande non trouvée' });
+            return res.status(404).json({ message: 'Produit non trouvée' });
         }
-        res.status(200).json({ message: 'Commande supprimée avec succès' });
+        res.status(200).json({ message: 'Produit supprimée avec succès' });
     } catch (error) {
-        res.status(500).json({ message: 'Erreur lors de la suppression de la commande', error });
+        res.status(500).json({ message: 'Erreur lors de la suppression du Produit', error });
     }
 };
 

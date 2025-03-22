@@ -7,7 +7,7 @@ const getAllCommments = async (req, res) => {
         res.status(200).json(comments);
     } catch (error) {
         console.error("Erreur MongoDB :", error); // Ajoute un log pour voir l'erreur exacte
-        res.status(500).json({ message: 'Erreur lors de la récupération des commandes', error });
+        res.status(500).json({ message: 'Erreur lors de la récupération des commentaires', error });
     }
 };
 
