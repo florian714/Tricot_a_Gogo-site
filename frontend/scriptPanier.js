@@ -1,5 +1,4 @@
-const apiURL = "http://127.0.0.1:3000"
-
+const apiURL = "http://127.0.0.1:5500"
 async function fetchProduit() {
     const token = localStorage.getItem('token');
 

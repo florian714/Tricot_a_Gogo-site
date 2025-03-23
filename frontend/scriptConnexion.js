@@ -1,5 +1,4 @@
-const apiURL = "http://127.0.0.1:3000"
-
+const apiURL = "http://127.0.0.1:5500"
 
 // Fonction pour envoyer une nouvelle commande à l'API
 document.getElementById('addClientForm').addEventListener('submit', function (e) {
