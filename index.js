@@ -16,8 +16,8 @@ const routePanier = require("./routes/PanierRoutes");
 const routeMail = require("./routes/mailRoutes");
 
 const app = express();
-const hostname = '127.0.0.1';
-const port = 3000;
+const hostname = process.env.HOSTNAME;
+const port = process.env.PORT;
 
 // Middleware pour parser les requêtes JSON (optionnel mais utile)
 app.use(cors());  // Permet les requêtes CORS
