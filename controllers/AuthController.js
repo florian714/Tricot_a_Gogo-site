@@ -1,6 +1,6 @@
 // backend/controllers/ClientController.js
 const User = require('../models/User');
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 
 module.exports.register = async (req, res) => {
